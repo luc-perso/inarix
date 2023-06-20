@@ -52,9 +52,9 @@ def test_model(model, ds_test, batch_size):
 
 
 @tf.autograph.experimental.do_not_convert
-def compile_test_model(model, ds_test, batch_size, from_logits=False, label_smoothing=0.1):
+def compile_test_model(model, ds_test, batch_size, from_logits=False):
   model.compile(
-    loss=keras.losses.CategoricalCrossentropy(from_logits=from_logits, label_smoothing=label_smoothing),
+    loss=keras.losses.CategoricalCrossentropy(from_logits=from_logits),
     metrics=[keras.metrics.CategoricalAccuracy(name="accuracy")]
   )
   y_test_pd, y_pred_pd, accuracy, conf_mat, report = test_model(model, ds_test, batch_size)
@@ -63,9 +63,9 @@ def compile_test_model(model, ds_test, batch_size, from_logits=False, label_smoo
 
 
 @tf.autograph.experimental.do_not_convert
-def compile_pred_model(model, ds_test, batch_size, from_logits=False, label_smoothing=0.1):
+def compile_pred_model(model, ds_test, batch_size, from_logits=False):
   model.compile(
-    loss=keras.losses.CategoricalCrossentropy(from_logits=from_logits, label_smoothing=label_smoothing),
+    loss=keras.losses.CategoricalCrossentropy(from_logits=from_logits),
     metrics=[keras.metrics.CategoricalAccuracy(name="accuracy")]
   )
   y_pred = model.predict(ds_test.batch(batch_size), batch_size=batch_size)
