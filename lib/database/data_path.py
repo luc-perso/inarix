@@ -12,9 +12,11 @@ def build_data_paths(data_path, grain_types, devices):
             path = os.path.join(data_path, type + "_" + device)
             if not os.path.exists(path):
                 continue
-            files = [f for f in os.listdir(path) if f[-4:] == ".jpg"]
-            if files != []:
-                data_paths.append(path)
-                hot_encoded_label.append(hot_encoded_num)
+            # files = [f for f in os.listdir(path) if f[-4:] == ".jpg"]
+            # if files != []:
+            #     data_paths.append(path)
+            #     hot_encoded_label.append(hot_encoded_num)
+            data_paths.append(path)
+            hot_encoded_label.append(hot_encoded_num)
 
     return data_paths, hot_encoded_label
