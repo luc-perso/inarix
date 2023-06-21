@@ -7,16 +7,13 @@ name = "pypi"
 pandas = "*"
 numpy = "*"
 scipy = "*"
-scikit-learn = "*"
 matplotlib = "*"
 seaborn = "*"
-imblearn = "*"
 notebook = "*"
 opencv-python = "*"
 tensorflow = "*"
 autopep8 = "*"
 tensorflow-addons = "*"
-streamlit = "*"
 
 [dev-packages]
 
